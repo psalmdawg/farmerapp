@@ -21,9 +21,19 @@ create database farmerapp
     VALUES ('John Deere', 'Combine harvester','A quality combine harvester, good runner.', 'false',
       'http://photo.jellyfields.com/image/16364441463/z/rick-craig,watching-another-sunset,rural-truck-afternoon-rusty-combine-northdakota-masseyharris-nikond3200-internationalharvester-townercounty.jpg', 10000 );
 
+      INSERT INTO items (name, category, description, sold_status, image_url, price)
+      VALUES ('unknown', 'Lawn mover','Decent lawn mower. In need of TLC, but I am sure it will run awesome again one day', 'false',
+        'https://usercontent2.hubstatic.com/8890305_f520.jpg', 5 );
+
+
+
       CREATE TABLE users (
         id SERIAL4 PRIMARY KEY,
-        user_name VARCHAR (100) NOT NULL
+        user_name VARCHAR (100) NOT NULL,
         email VARCHAR(60) NOT NULL,
         password_digest VARCHAR(400) NOT NULL
       );
+
+      INSERT INTO items (name, category, description, sold_status, image_url, price)
+      VALUES ('Toro', 'Racing Lawn mover','Quite a fast lawn mower. Cuts grass in half the time. Good for running away from wild animals', 'false',
+        'http://www.theglobeandmail.com/news/british-columbia/article14631004.ece/BINARY/w620/gallery-lawnmowers1.JPG', 5 );

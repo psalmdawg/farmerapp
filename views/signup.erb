@@ -1,4 +1,4 @@
-<form action="/index" method="post">
+<form action="/signup" method="post">
   <p>
     <label for="">User Name</label>
     <input type="text" name="username">
@@ -17,14 +17,9 @@
   </p>
 
 
-<select name="item_id" id="">
-  <% @items.each do |item| %>
-    <option value="<%=dish_type.id %>"><%= dish_type.name %>
-    </option>
-  <% end %>
-</select>
 
-<button>Create Dish</button>
+
+<button>Sign up!</button>
 
 </form>
 

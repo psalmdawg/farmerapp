@@ -1,6 +1,22 @@
+
+<% if logged_in? %>
 <h1><%= @item.name %></h1>
   <img src="<%= @item.image_url%>" alt="">
     <p><%= @item.description%></p>
     <p>$<%= @item.price%></p>
 
 <a href="/">home</a>
+
+
+
+<% else %>
+
+<h1>Not logged in</h1>
+<h1><%= @item.name %></h1>
+  <img src="<%= @item.image_url%>" alt="">
+    <p><%= @item.description%></p>
+    <p>$<%= @item.price%></p>
+
+<a href="/">home</a>
+
+<% end  %>
