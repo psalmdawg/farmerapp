@@ -1,0 +1,19 @@
+<h1>All Items available</h1>
+
+<!-- <a  href="/items/new">Create New</a> -->
+
+<% @items.each do |item| %>
+
+<ul>
+  <li>
+    <a href="/item_info/<%= item.id%>">
+      <img src="<%= item.image_url%>" alt="">
+      <%= item.name %>
+    </a>
+  </li>
+</ul>
+
+
+
+
+<% end %>

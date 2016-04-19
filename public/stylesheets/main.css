@@ -1,0 +1,20 @@
+*{
+  font-family: 'Droid Sans', sans-serif;
+}
+
+body{
+  margin: auto;
+  width: 800px;
+  color: darkgray;
+  background-color: white;
+  padding: 40px;
+
+}
+
+img {
+  width: 350px;
+}
+
+li {
+  display:inline;
+}
