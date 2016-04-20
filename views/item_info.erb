@@ -4,19 +4,31 @@
   <img src="<%= @item.image_url%>" alt="">
     <p><%= @item.description%></p>
     <p>$<%= @item.price%></p>
+    <p> <%=@item.user_id %></p>
 
-<a href="/">home</a>
 
+
+<form action="/send_message/<%= @item.user_id%>" method="post">
+    <div>
+        <label for="msg">Message:</label>
+        <textarea name="content"></textarea>
+    </div>
+
+    <div class="button">
+        <button type="submit">Contact Seller</button>
+    </div>
+</form>
 
 
 <% else %>
 
 <h1>Not logged in</h1>
-<h1><%= @item.name %></h1>
-  <img src="<%= @item.image_url%>" alt="">
-    <p><%= @item.description%></p>
-    <p>$<%= @item.price%></p>
+  <h1><%= @item.name %></h1>
+    <img src="<%= @item.image_url%>" alt="">
+      <p><%= @item.description%></p>
+      <p>$<%= @item.price%></p>
+      <p> <%= @item.user_id %></p>
+<h2>Login, or signup to contact the seller</h2>
 
-<a href="/">home</a>
 
 <% end  %>

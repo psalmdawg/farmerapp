@@ -3,8 +3,9 @@ require 'sinatra'
 require './db_config'
 require './models/item'
 require './models/user'
+require './models/message'
 require 'pg'
-
+require 'pry'
 enable :sessions
 
 helpers do
@@ -59,13 +60,10 @@ get '/session/new' do
    erb :login
 end
 
-
 post '/session' do
     user = User.find_by(email: params[:email])
-    #to check if user is there GET THIS EXPLAINED
     if user && user.authenticate(params[:password]) #we're in
     session[:user_id] = user.id
-    # @loggedin = session[:username]
       redirect to '/'
     else
       erb :login
@@ -77,12 +75,54 @@ delete '/session/delete' do
   redirect to('/')
 end
 
-
 get '/donate' do
-
   erb :donate
 end
 
 get '/user_home' do
+  @items = current_user.items
+  # @items = Item.find(session[:user_id])  #these items are to be specific to the user
   erb :user_home
+end
+
+get '/create_ad' do
+  erb :create_ad
+end
+
+
+post '/posted' do
+  item = Item.new
+  item.name = params[:name]
+  item.image_url = params[:image_url]
+  item.sold_status = false
+  item.category = params[:category]
+  item.price= params[:price]
+  item.user_id = session[:user_id]
+  item.description = params[:description]
+  item.save
+
+  erb :posted
+end
+
+post '/send_message/:user_id' do
+
+  message = Message.new
+  message.content = params[:content]
+  message.sender_id = session[:user_id]
+  message.receiver_id = params[:user_id]
+  message.read_status = false
+  message.save
+
+  erb :message_sent
+end
+
+get '/messages' do
+  #what is the receiver_id. how does it know who is the receiver?
+  @users = User.all
+  @messages = Message.where(receiver_id: current_user)
+
+
+
+  erb :messages
+
 end

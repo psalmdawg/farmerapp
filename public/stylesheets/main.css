@@ -2,19 +2,50 @@
   font-family: 'Droid Sans', sans-serif;
 }
 
+header {
+  border: solid black 5px;
+  background-color: pink;
+  width: 960;
+
+}
+
+#msg_read {
+
+  font-style: bold;
+  color: black;
+}
+
+#msg_content {
+  margin-bottom: 5px;
+  border: solid black 1px;
+  color: blue;
+}
+
+html{
+  background-color: lightgreen;
+}
+
+.signup.label {
+  margin-left: 300px;
+}
+
 body{
   margin: auto;
-  width: 800px;
+  width: 960px;
   color: darkgray;
   background-color: white;
   padding: 40px;
 
 }
 
-img {
-  width: 350px;
+#index {
+  width: 150px;
 }
 
 li {
   display:inline;
+}
+
+img {
+  width: 300px;
 }

@@ -1,3 +1,27 @@
-<h1>profile page</h1>
 
-<p> for editing, creating and deleting ads, and storing your contact info</p>
+<h1>Welcome <% #{params[:username] %>, to your personal home page</h1>
+
+<p>... for editing, creating and deleting ads, and storing your contact info</p>
+<ul>
+  <li><a href="/create_ad">Post a new ad...</a></li>
+  <li><a href="/messages">Messages</a></li>
+
+
+
+<h2> Here is to be displayed the listings that the user has uploaded.
+  link database with id of user to their ads so they display in their private area </h2>
+
+
+  <% @items.each do |item| %>
+
+  <ul>
+    <li>
+      <a href="/item_info/<%= item.id%>">
+        <img id="index" src="<%= item.image_url%>" alt="">
+        <%= item.name %>
+        $<%= item.price %>
+      </a>
+    </li>
+  </ul>
+
+<% end %>

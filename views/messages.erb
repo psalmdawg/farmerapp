@@ -1,0 +1,12 @@
+<h1>Messages</h1>
+<% @messages.each do |message| %>
+
+<ul>
+  <li>
+    <div id="msg_content">FROM:<%= @users.find(message.sender_id).user_name  %><%= message.content %></div>
+    <span id="msg_read">READ:</span> <%= message.read_status %>
+    <span><a href="">REPLY</a>
+    <span><a href="">DELETE</a>
+  </li>
+</ul>
+<% end %>

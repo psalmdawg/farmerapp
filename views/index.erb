@@ -7,8 +7,9 @@
 <ul>
   <li>
     <a href="/item_info/<%= item.id%>">
-      <img src="<%= item.image_url%>" alt="">
+      <img id="index" src="<%= item.image_url%>" alt="">
       <%= item.name %>
+      <%= item.price %>
     </a>
   </li>
 </ul>
@@ -17,5 +18,3 @@
 
 
 <% end %>
-
-<a href="/">home</a>
