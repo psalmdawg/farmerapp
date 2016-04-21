@@ -2,28 +2,35 @@
   font-family: 'Droid Sans', sans-serif;
 }
 
-header {
-  /*border: solid black 5px;
-  background-color: pink;*/
-  width: 960px;
-
+html{
+  background-color: #0aa0d9;
 }
 
-/*nav {
-  position: fixed;
-  width: 100%;
-  background-color: white;
-}*/
+nav.a {
+  color: white;
+  text-decoration: none;
+}
+header {
+  margin-top: -55px;
+  background-color: #1352a2;
+  display: fixed;
+  height: 75px;
+  padding: 15px;
+  padding-top: 30px;
+  width: 1010px;
+  margin-left:-40px;
+}
 
-/*body{
+body{
   margin: auto;
   width: 960px;
   color: darkgray;
-  background-color: white;
+  background-color: #fffdf8;
   padding: 40px;
-  margin-top: 300px;
+  padding-bottom: 500px;
+  margin-top:
 
-}*/
+}
 
 #DisplayUser {
   font-size: 10px;
@@ -46,9 +53,6 @@ header {
   font-weight: bold;
 }
 
-html{
-  background-color: lightgreen;
-}
 
 .signup.label {
   margin-left: 300px;
@@ -78,7 +82,7 @@ img {
 
 }
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #white; /* Green */
     border: black solid 1px;
     color: white;
     padding: 3px 3px;
@@ -96,8 +100,21 @@ button {
   color: black;
 }
 
+#remove{
+  height: 100px;
+  width: 200px;
+  background-color: red;
+  color: black;
+  font-size: 30px;
+  margin-left: 380px;
+  margin-top: 100px;
+}
 #reply {
   width: 250px;
   height: 125px;
   padding:10px;
 }
+
+/*.centre{
+  text-align: center;
+}*/

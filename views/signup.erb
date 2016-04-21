@@ -6,26 +6,26 @@
     <input type="email" name="email" placeholder= "enter email"/>
   </p>
   <p>
-    <input type="password" name="pass1" placeholder= "enter password"/ id="pass1" >
+    <input type="password" name="pass1" placeholder= "enter password" id="pass1" />
   </p>
   <p>
     <input type="password" name="pass2" placeholder= "confirm password"  id="pass2"
-    onkeyup="checkPass(); return false;"> <span id="confirmMessage" class="confirmMessage"></span>
-  </p>
+    onkeyup="checkPass(); return false;">
+  </p><span id="confirmMessage" class="confirmMessage"></span>
   <button id="toggle">signup!</button>
 
 </form>
 <script>
-document.getElementById('toggle').style.visibility = 'hidden';
+  document.getElementById('toggle').style.visibility = 'hidden';
 
-function checkPass() {
-  // action()
+  function checkPass() {
+
     var pass1 = document.getElementById('pass1');
     var pass2 = document.getElementById('pass2');
     var message = document.getElementById('confirmMessage');
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
-    var text = "#000000"
+    var text = "#000000";
 
     if(pass1.value == pass2.value) {
         pass2.style.backgroundColor = goodColor;
@@ -39,6 +39,5 @@ function checkPass() {
         message.style.color = badColor;
         message.innerHTML = "Your passwords aren't the same"
         document.getElementById('toggle').style.visibility = 'hidden';
-
     }
 }
