@@ -1,3 +1,4 @@
+console.log("JS in the house")
 function checkPassword(){
 
   if password === confirmation_password {

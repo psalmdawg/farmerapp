@@ -1,29 +1,30 @@
 <% if logged_in? %>
-#need to get hidden information that links the ad to the user
+
 <form action="/posted" method="post">
   <ul>
     <li>
-      <label for="">Name</label>
-      <input type="text" name="name">
+      <div class="lab"><label for="">Name</label></div>
+      <div class="inp"><input type="text" name="name" size ="100"></div>
     </li>
     <li>
-      <label for="">Category</label>
-      <input type="text" name="category">
+      <div class="lab"><label for="">Category</label></div>
+      <div class="inp"><input type="text" name="category" size ="100"></div>
     </li>
     <li>
-      <label for="">Describe your product</label>
-      <input type="text" name="description">
+      <div class="lab">  <label for="">Describe your product</label></div>
+      <div class="inp"><input type="text" name="description" size ="100"></div>
 
     <li>
-      <label for="">Images url</label>
-      <input type="text" name="image_url">
+      <div class="lab"><label for="">Images url</label></div>
+      <div class="inp"><input type="text" name="image_url" size ="100"></div>
     </li>
     <li>
-      <label for="">Price</label>
-      <input type="text">
+      <div class="lab"><label for="">Price</label></div>
+      <div class="inp"><input type="number" name ="price" size ="100"></div>
     </li>
   </ul>
 <button>Post</button>
 </form>
+
 <% else %>
 <% end %>

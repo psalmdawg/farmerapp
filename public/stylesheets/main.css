@@ -3,10 +3,34 @@
 }
 
 header {
-  border: solid black 5px;
-  background-color: pink;
-  width: 960;
+  /*border: solid black 5px;
+  background-color: pink;*/
+  width: 960px;
 
+}
+
+/*nav {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}*/
+
+/*body{
+  margin: auto;
+  width: 960px;
+  color: darkgray;
+  background-color: white;
+  padding: 40px;
+  margin-top: 300px;
+
+}*/
+
+#DisplayUser {
+  font-size: 10px;
+  color: black;
+  display:inline;
+  float:right;
+  margin-right: 30px;
 }
 
 #msg_read {
@@ -18,7 +42,8 @@ header {
 #msg_content {
   margin-bottom: 5px;
   border: solid black 1px;
-  color: blue;
+  color: black;
+  font-weight: bold;
 }
 
 html{
@@ -29,14 +54,6 @@ html{
   margin-left: 300px;
 }
 
-body{
-  margin: auto;
-  width: 960px;
-  color: darkgray;
-  background-color: white;
-  padding: 40px;
-
-}
 
 #index {
   width: 150px;
@@ -48,4 +65,39 @@ li {
 
 img {
   width: 300px;
+}
+
+.lab {
+  /*display:inline-block;*/
+  margin: 10px
+}
+
+.inp {
+  /*display: inline-block;*/
+  margin: 10px
+
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: black solid 1px;
+    color: white;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 5px;
+    width: 76px;
+    height: 20px;
+}
+
+#small {
+  font-size: 10px;
+  color: black;
+}
+
+#reply {
+  width: 250px;
+  height: 125px;
+  padding:10px;
 }

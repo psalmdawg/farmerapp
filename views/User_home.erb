@@ -1,16 +1,12 @@
 
-<h1>Welcome <% #{params[:username] %>, to your personal home page</h1>
+<h2>Welcome <%= @name %>, to your personal home page</h2>
 
-<p>... for editing, creating and deleting ads, and storing your contact info</p>
+
 <ul>
-  <li><a href="/create_ad">Post a new ad...</a></li>
+  <li><a href="/create_ad">Create a new advert</a></li>
   <li><a href="/messages">Messages</a></li>
-
-
-
-<h2> Here is to be displayed the listings that the user has uploaded.
-  link database with id of user to their ads so they display in their private area </h2>
-
+  <li><a href="/remove">Remove your profile</a><li>
+</ul>
 
   <% @items.each do |item| %>
 
@@ -20,8 +16,16 @@
         <img id="index" src="<%= item.image_url%>" alt="">
         <%= item.name %>
         $<%= item.price %>
-      </a>
-    </li>
+</a>
+   </li>
+
+   <form action="/item_info/<%= item.id %>" method="post">
+     <input type="hidden" value="delete" name="_method">
+     <button>Delete</button>
+   </form>
+
+
+
   </ul>
 
 <% end %>

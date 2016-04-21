@@ -8,14 +8,16 @@
 </head>
 <header>
 
-
+<nav>
 
     <ul>
-      <li><% if logged_in? %> Logged in as <%= current_user[:user_name] %>  <% else %> <% end %></li>
-      <li><% if logged_in? %><form action="/session/delete" method="post">
-              <input type="hidden" value = "delete" name="_method">
+      <li><span id="DisplayUser"><% if logged_in? %> Logged in as <%= current_user[:user_name] %></span>  <% else %> <% end %></li>
+            <li><% if logged_in? %>
+              <form action="/session/delete" method="post"></li>
+            <li><input type="hidden" value = "delete" name="_method">
               <button>LOGOUT</button>
-              <li><a href="/user_home">My Profile</a></li>
+            </li>
+            <li><a href="/user_home">My Profile</a></li>
           </form>
           <% else %>
             <a href="/session/new">login</a>
@@ -23,8 +25,10 @@
       <li><a href="/signup">Sign-Up</a></li>
       <li><a href="">Contact</a></li>
       <li><a href="/donate">Donate</a></li>
-      <li><a href="/">home</a></li>
+      <li><a href="/">Main-Page</a></li>
     </ul>
+</nav>
+
   </header>
 <body>
 

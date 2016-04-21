@@ -1,27 +1,44 @@
 <form action="/signup" method="post">
   <p>
-    <label class="signup" for="">User Name</label>
-    <input type="text" name="username">
+    <input type="text" name="username" placeholder= "enter a username"/>
   </p>
   <p>
-    <label class="signup" for="">Email</label>
-    <input type="text" name="email">
+    <input type="email" name="email" placeholder= "enter email"/>
   </p>
   <p>
-    <label class="signup" for="">Password</label>
-    <input type="password" name = "password">
+    <input type="password" name="pass1" placeholder= "enter password"/ id="pass1" >
   </p>
   <p>
-    <label class="signup" for="">Confirm password</label>
-    <input type="password" name ="confirmation_password">
+    <input type="password" name="pass2" placeholder= "confirm password"  id="pass2"
+    onkeyup="checkPass(); return false;"> <span id="confirmMessage" class="confirmMessage"></span>
   </p>
-
-
-
-
-<button>Sign up!</button>
+  <button id="toggle">signup!</button>
 
 </form>
+<script>
+document.getElementById('toggle').style.visibility = 'hidden';
 
+function checkPass() {
+  // action()
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    var message = document.getElementById('confirmMessage');
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    var text = "#000000"
 
-<script src="javascript/passwordCheck.js"></script>
+    if(pass1.value == pass2.value) {
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = text;
+        document.getElementById('toggle').style.visibility = 'visible';
+        message.innerHTML = ""
+
+    } else {
+
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Your passwords aren't the same"
+        document.getElementById('toggle').style.visibility = 'hidden';
+
+    }
+}

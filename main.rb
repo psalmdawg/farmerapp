@@ -8,6 +8,7 @@ require 'pg'
 require 'pry'
 enable :sessions
 
+
 helpers do
 
   def current_user
@@ -17,7 +18,6 @@ helpers do
   def logged_in?
     !!current_user
   end
-
 end
 
 
@@ -39,20 +39,52 @@ end
 
 #to sign in (create new user)
 get '/signup' do
-    # redirect to 'session/new' if !logged_in?
+
     erb :signup
 end
 
 #sign in / new user
 post '/signup' do
 
+
+
+
   user = User.new
   user.user_name = params[:username]
   user.email = params[:email]
-  user.password = params[:password]
+  user.password = params[:pass2]
   user.save
-  redirect to '/'
 
+  username = params[:username]
+  email = params[:email]
+
+  File.open("emails.csv", "a+") do |f|
+    f.write "#{Time.now},#{username},#{email}\n"
+  end
+  redirect to '/session/new'
+
+end
+
+delete '/remove_profile' do
+
+  @messages = Message.where(receiver_id: current_user.id)
+  @messages.each do |message|
+    message.delete
+  end
+  @items = Item.where(user_id: current_user.id)
+  @items.each do |item|
+    item.delete
+  end
+
+  messages = params[:messages]
+  items = params[:items]
+  user = current_user
+  user.delete
+  redirect to '/please_dont_leave_me'
+end
+
+get '/please_dont_leave_me' do
+  "sorry you are leaving, sign up again for full free access, anytime!"
 end
 
 #to log in
@@ -69,7 +101,7 @@ post '/session' do
       erb :login
     end
 end
-
+#to log out
 delete '/session/delete' do
   session[:user_id]=nil
   redirect to('/')
@@ -81,6 +113,7 @@ end
 
 get '/user_home' do
   @items = current_user.items
+  @name = current_user.user_name
   # @items = Item.find(session[:user_id])  #these items are to be specific to the user
   erb :user_home
 end
@@ -100,9 +133,28 @@ post '/posted' do
   item.user_id = session[:user_id]
   item.description = params[:description]
   item.save
-
   erb :posted
 end
+
+# <form action="/item_info/<%= item.id %>"
+#to delete an item for sale
+
+# Item.delete(Item.find(:id))
+
+delete '/item_info/:id' do
+  item = Item.find(params[:id])
+  item.delete
+  redirect "/user_home"
+end
+
+#delete a message
+
+delete '/messages/:id' do
+  message = Message.find(params[:id])
+  message.delete
+  redirect "/messages"
+end
+
 
 post '/send_message/:user_id' do
 
@@ -112,7 +164,6 @@ post '/send_message/:user_id' do
   message.receiver_id = params[:user_id]
   message.read_status = false
   message.save
-
   erb :message_sent
 end
 
@@ -120,9 +171,28 @@ get '/messages' do
   #what is the receiver_id. how does it know who is the receiver?
   @users = User.all
   @messages = Message.where(receiver_id: current_user)
-
-
-
   erb :messages
 
+end
+
+
+get '/reply' do
+
+  @reciever = params[:receiver]
+  erb :reply
+end
+
+post '/replied' do
+
+  message = Message.new
+  message.content = params[:content]
+  message.sender_id = session[:user_id]
+  message.receiver_id = params[:receiver]
+  message.read_status = false
+  message.save
+  erb :replied
+end
+
+get '/remove' do
+  erb :remove_profile
 end
