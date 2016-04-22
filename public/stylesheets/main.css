@@ -6,7 +6,11 @@ html{
   background-color: #0aa0d9;
 }
 
-nav.a {
+.adLnk {
+  color:black;
+}
+
+a {
   color: white;
   text-decoration: none;
 }
@@ -29,9 +33,18 @@ body{
   padding: 40px;
   padding-bottom: 500px;
   margin-top:
-
 }
 
+#itemName {
+  font-size: 20px;
+  color: black;
+}
+
+#allItems{
+  float: left;
+  display: inline-block;
+  width: 300px;
+}
 #DisplayUser {
   font-size: 10px;
   color: black;
@@ -81,6 +94,7 @@ img {
   margin: 10px
 
 }
+
 button {
     background-color: #white; /* Green */
     border: black solid 1px;
@@ -99,7 +113,10 @@ button {
   font-size: 10px;
   color: black;
 }
-
+.UH{
+  color: black;
+  background-color: light-blue;
+}
 #remove{
   height: 100px;
   width: 200px;

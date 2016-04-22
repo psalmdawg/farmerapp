@@ -1,11 +1,8 @@
 
-<h2>Replies that are sent are stored in the database but do not contain the
-  recievers ID and do not show up in the receivers inbox</h2>
+
 
 <form action="/replied" method="post">
     <div>
-      <form action="/reply" method="get">
-      <input type="hidden" name="receiver" value="<%= @reciever %>" id="">
 
         <label for="msg">Message:</label>
         <textarea name="content"></textarea>

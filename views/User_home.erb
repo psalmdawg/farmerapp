@@ -3,16 +3,16 @@
 
 
 <ul>
-  <li><a href="/create_ad">Create a new advert</a></li>
-  <li><a href="/messages">Messages</a></li>
-  <li><a href="/remove">Remove your profile</a><li>
+  <li><a class="UH" href="/create_ad">Create a new advert</a></li>
+  <li><a class="UH" href="/messages">Messages</a></li>
+  <li><a class="UH" href="/remove">Remove your profile</a><li>
 </ul>
 
   <% @items.each do |item| %>
 
   <ul>
     <li>
-      <a href="/item_info/<%= item.id%>">
+      <a class="adLnk" href ="/item_info/<%= item.id%>">
         <img id="index" src="<%= item.image_url%>" alt="">
         <%= item.name %>
         $<%= item.price %>

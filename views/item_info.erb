@@ -2,6 +2,7 @@
 <% if logged_in? %>
 <div class="centre">
 <h1><%= @item.name %></h1>
+<p>Item Id: <%= @item.id %></p>
   <img src="<%= @item.image_url%>" style="cursor:pointer"
        onclick="showImage(this.src, '<%= @item.image_url%>');" />
   <div id="largeImgPanel" onclick="this.style.display='none'">
@@ -18,10 +19,11 @@
 
 <form action="/send_message/<%= @item.user_id%>" method="post">
     <div>
-
-        <textarea id ="reply" name="content" placeholder="Contact the seller..."
-        ></textarea>
+        <textarea id ="reply" name="content" placeholder="Contact the seller...">
+        </textarea>
     </div>
+
+    <input type="hidden" name="related" value = "<%= @item.id %>">
 
     <div class="button">
         <button type="submit">Contact Seller</button>

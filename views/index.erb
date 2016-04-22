@@ -7,11 +7,14 @@
 
 <ul>
   <li>
-    <a href="/item_info/<%= item.id%>">
-      <img id="index" src="<%= item.image_url%>" alt="">
-      <%= item.name %>
-      $<%= item.price %>
+    <div id="allItems">
+      <div id="itemName"><%= item.name %></div>
+      <a class="adLnk" href="/item_info/<%= item.id%>">
+        <img id="index" src="<%= item.image_url%>" alt="">
+
+        $<%= item.price %>
     </a>
+    </div>
   </li>
 </ul>
 

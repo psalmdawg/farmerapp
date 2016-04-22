@@ -1,17 +1,16 @@
 <h1>Messages</h1>
+<h3><%= @noMsg %></h3>
+
 <% @messages.each do |message| %>
 
 <ul>
   <li>
-    <div id="msg_content"><%= @users.find(message.sender_id).user_name  %> says... <span id="msg"> <%= message.content %></span></div>
+    <div id="msg_content">Message From: <%= @users.find(message.sender_id).user_name  %>|   Message about:
+      <%= Item.find(message.related_item_id).name%> | <span id="msg"> <%= message.content %></span></div>
     <span id="msg_read">READ:</span> <%= message.read_status %>
 
-
-
-    <form action="/reply" method="get">
-    <input type="hidden" name="reply" value="<%= message.content %>" id="">
-    <input type="hidden" name="receiver" value="<%= @users.find(message.sender_id).id  %>" id="">
-      <button>reply</button>
+    <form action="/reply" method="post">
+    <button>reply</button>
     </form>
 
     <form action="/messages/<%= message.id %>" method="post">

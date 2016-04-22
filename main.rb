@@ -39,16 +39,11 @@ end
 
 #to sign in (create new user)
 get '/signup' do
-
     erb :signup
 end
 
 #sign in / new user
 post '/signup' do
-
-
-
-
   user = User.new
   user.user_name = params[:username]
   user.email = params[:email]
@@ -70,16 +65,16 @@ delete '/remove_profile' do
   @messages = Message.where(receiver_id: current_user.id)
   @messages.each do |message|
     message.delete
-  end
+    end
   @items = Item.where(user_id: current_user.id)
   @items.each do |item|
     item.delete
-  end
+    end
 
-  messages = params[:messages]
-  items = params[:items]
-  user = current_user
-  user.delete
+    messages = params[:messages]
+    items = params[:items]
+    user = current_user
+    user.delete
   redirect to '/please_dont_leave_me'
 end
 
@@ -101,6 +96,7 @@ post '/session' do
       erb :login
     end
 end
+
 #to log out
 delete '/session/delete' do
   session[:user_id]=nil
@@ -136,10 +132,7 @@ post '/posted' do
   erb :posted
 end
 
-# <form action="/item_info/<%= item.id %>"
-#to delete an item for sale
-
-# Item.delete(Item.find(:id))
+#delete an item
 
 delete '/item_info/:id' do
   item = Item.find(params[:id])
@@ -163,36 +156,46 @@ post '/send_message/:user_id' do
   message.sender_id = session[:user_id]
   message.receiver_id = params[:user_id]
   message.read_status = false
+  message.related_item_id = params[:related]
   message.save
   erb :message_sent
 end
 
+#Displays all current messages
 get '/messages' do
-  #what is the receiver_id. how does it know who is the receiver?
   @users = User.all
+  # @items = Item.all
   @messages = Message.where(receiver_id: current_user)
+  # related = Message.related_item_id
+  # @related_ad = Item.where(id: message.related_item_id).name
+  if  @messages == []
+    @noMsg  = "You have no messages"
+  end
+
   erb :messages
-
-end
-
-
-get '/reply' do
-
-  @reciever = params[:receiver]
-  erb :reply
 end
 
 post '/replied' do
 
+  erb :replied
+end
+
+post '/reply' do
   message = Message.new
-  message.content = params[:content]
   message.sender_id = session[:user_id]
   message.receiver_id = params[:receiver]
+  message.related_item_id = params[:related]
+  message.content = params[:content]
   message.read_status = false
   message.save
-  erb :replied
+  erb :reply
+
 end
 
 get '/remove' do
   erb :remove_profile
+end
+
+get '/contact' do
+  "Hey! Come round for a beer sometime,   <a href= '/'>Home</a>"
 end

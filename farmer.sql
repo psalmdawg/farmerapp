@@ -13,6 +13,23 @@ create database farmerapp
     user_id INTEGER
   );
 
+  CREATE TABLE users (
+    id SERIAL4 PRIMARY KEY,
+    user_name VARCHAR (100) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    password_digest VARCHAR(400) NOT NULL
+  );
+
+  CREATE TABLE messages (
+    id serial4 PRIMARY KEY,
+    content VARCHAR(1000),
+    sender_id INTEGER,
+    receiver_id INTEGER,
+    read_status BOOLEAN,
+    related_item_id VARCHAR(5)
+  )
+
+
 
   INSERT INTO items (name, category, description, sold_status, image_url, price, seller)
   VALUES ('McCormick Farmall', 'tractor','Beautiful tractor, good runner,
@@ -29,21 +46,3 @@ create database farmerapp
         INSERT INTO items (name, category, description, sold_status, image_url, price, seller)
         VALUES ('Toro', 'Racing Lawn mover','Quite a fast lawn mower. Cuts grass in half the time. Good for running away from wild animals', 'false',
           'http://www.theglobeandmail.com/news/british-columbia/article14631004.ece/BINARY/w620/gallery-lawnmowers1.JPG', 5 );
-
-
-      CREATE TABLE users (
-        id SERIAL4 PRIMARY KEY,
-        user_name VARCHAR (100) NOT NULL,
-        email VARCHAR(60) NOT NULL,
-        password_digest VARCHAR(400) NOT NULL
-      );
-
-
-
-      CREATE TABLE users (
-        id serial4 PRIMARY KEY,
-        content VARCHAR,
-        sender_id INTEGER,
-        receiver_id INTEGER,
-        read_status BOOLEAN
-      )
