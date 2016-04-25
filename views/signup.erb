@@ -1,21 +1,54 @@
+<p id='emails'> <%= @emails.to_json %> </p>
+<p> <%= @email_alert %></p>
+
 <form action="/signup" method="post">
   <p>
     <input type="text" name="username" placeholder= "enter a username"/>
   </p>
   <p>
-    <input type="email" name="email" placeholder= "enter email"/>
-  </p>
+    <input type="email" name="email" placeholder= "enter email" id="email"
+    onkeyup="checkEmail(); return false;"/>
+  </p><span id ="hidden_message"></span>
   <p>
-    <input type="password" name="pass1" placeholder= "enter password" id="pass1" />
+    <input type="password" name="pass1" placeholder= "enter password" id="pass1"/>
   </p>
   <p>
     <input type="password" name="pass2" placeholder= "confirm password"  id="pass2"
     onkeyup="checkPass(); return false;">
   </p><span id="confirmMessage" class="confirmMessage"></span>
-  <button id="toggle">signup!</button>
+  <button id="toggle" onclick="checkEmail()">signup!</button>
 
 </form>
+
+<p> the Json emails from ruby ===> <%= @emails.to_json %></p>
+
 <script>
+
+function checkEmail(){
+
+  var emails = <%= @emails.to_json %>
+  var badColor = "#ff6666"
+  var emailAlerter = document.getElementById('hidden_message')
+
+  var email = document.getElementById('email')
+  for(i =0; i <= emails.length; i ++){
+    if (emails[i] === email.value){
+    email.style.backgroundColor = badColor;
+    emailAlerter.innerHTML = "This email is already taken"}
+
+//    else  { for (j=0; j <=emails.length; j++) {
+//     if(emails[j] !== email.value){
+//       email.style.backgroundColor = white;
+//       emailAlerter.innerHTML = ""
+//     }
+//   }
+// };
+
+
+  }
+}
+
+
   document.getElementById('toggle').style.visibility = 'hidden';
 
   function checkPass() {
@@ -38,8 +71,12 @@
         pass2.style.backgroundColor = badColor;
         message.style.color = badColor;
         message.innerHTML = "Your passwords aren't the same"
+
         document.getElementById('toggle').style.visibility = 'hidden';
     }
 }
+
+
+
 
 </script>

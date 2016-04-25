@@ -1,22 +1,43 @@
 <h1>Messages</h1>
+<a id="sndNwMsg" href="/new_message">Send a new message</a>
 <h3><%= @noMsg %></h3>
+
 
 <% @messages.each do |message| %>
 
 <ul>
   <li>
-    <div id="msg_content">Message From: <%= @users.find(message.sender_id).user_name  %>|   Message about:
-      <%= Item.find(message.related_item_id).name%> | <span id="msg"> <%= message.content %></span></div>
-    <span id="msg_read">READ:</span> <%= message.read_status %>
+    <div id="msg_head">
+      <span id="from">From:</span>
+      <%= @users.find(message.sender_id).user_name  %> |
+    <span id="Re">  Re:  </span>
+      <%= Item.find(message.related_item_id).name%>
 
-    <form action="/reply" method="post">
-    <button>reply</button>
-    </form>
 
-    <form action="/messages/<%= message.id %>" method="post">
-      <input type="hidden" value="delete" name="_method">
-      <button>Delete</button>
-    </form>
+
+      <div id="bth_btns">
+        <div class="msgBtns">
+          <form action="/reply" method="post">
+            <input type="hidden" name="receiver" value="<%= @users.find(message.sender_id).id  %>">
+            <input type="hidden" name="related" value="<%= Item.find(message.related_item_id).id%>">
+          <button class="small_reply">reply</button>
+          </form>
+      </div>
+      <div class="msgBtns">
+          <form action="/messages/<%= message.id %>" method="post">
+            <input type="hidden" value="delete" name="_method">
+            <button class="small_reply">Delete</button>
+          </form>
+      </div>
+    </div>
+  </div>
+      <div id="msg_content">
+      <span id="msg"><%= message.content %></span></div>
+
+
+
+
+
 
   </li>
 </ul>

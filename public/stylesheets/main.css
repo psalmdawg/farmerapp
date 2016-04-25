@@ -2,6 +2,33 @@
   font-family: 'Droid Sans', sans-serif;
 }
 
+#contact_list{
+  float: left;
+  width: 45px;
+}
+
+#disclaimer {
+  color: red;
+  font-weight: bold;
+}
+
+#textarea {
+display:inline;
+}
+
+#newMsg {
+margin-top: 75px;
+}
+
+#sndNwMsg{
+  color:black;
+}
+
+#clear{
+/*float: right;*/
+background-color: pink;
+}
+
 html{
   background-color: #0aa0d9;
 }
@@ -10,10 +37,15 @@ html{
   color:black;
 }
 
+#contacts{
+color:black;
+}
+
 a {
   color: white;
   text-decoration: none;
 }
+
 header {
   margin-top: -55px;
   background-color: #1352a2;
@@ -45,12 +77,17 @@ body{
   display: inline-block;
   width: 300px;
 }*/
+
 #DisplayUser {
   font-size: 10px;
   color: black;
   display:inline;
   float:right;
   margin-right: 30px;
+}
+
+#msg_head{
+  clear:both;
 }
 
 #msg_read {
@@ -61,16 +98,21 @@ body{
 
 #msg_content {
   margin-bottom: 5px;
+  margin-top:30px;
   border: solid black 1px;
   color: black;
   font-weight: bold;
-}
+  clear: left;
+  background-color: white;
+  height: 60px;
+  width: 900px;
+  padding: 10px;
 
+}
 
 .signup.label {
   margin-left: 300px;
 }
-
 
 #index {
   width: 150px;
@@ -92,7 +134,6 @@ img {
 .inp {
   /*display: inline-block;*/
   margin: 10px
-
 }
 
 button {
@@ -113,10 +154,36 @@ button {
   font-size: 10px;
   color: black;
 }
-.UH{
+
+.small_reply {
+  width: 40px;
+
+  /*padding-bottom: 5px;*/
+  margin-left:2px;
+}
+.UH {
   color: black;
   background-color: light-blue;
 }
+
+#msgCt {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  border: white 1px solid;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.msgBtns{
+  /*display: inline;*/
+  float: left;
+}
+
+/*#msg_head{
+  color: black;
+}*/
+
 #remove{
   height: 100px;
   width: 200px;
@@ -126,12 +193,18 @@ button {
   margin-left: 380px;
   margin-top: 100px;
 }
-#reply {
+#from{
+  color: black;
+}
+#send_message {
   width: 250px;
   height: 125px;
   padding:10px;
 }
 
+#Re {
+  color: black;
+}
 /*.centre{
   text-align: center;
 }*/

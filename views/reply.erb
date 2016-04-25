@@ -1,10 +1,18 @@
 
 
 
-<form action="/replied" method="post">
-    <div>
+<h3> sender<%= @forward_senderID %> </h3>
+<h3>reciever <%= @forward_receiverID %> </h3>
+<h3>item <%= @forward_related_itemID  %></h3>
 
+<h3><%= current_user.user_name %> </h3>
+<form action="/replied" method="post">
+  <input type="hidden" value="<%= @forward_senderID %>" name="sender">
+  <input type="hidden" value="<%= @forward_receiverID %>" name="receiver">
+  <input type="hidden" value="<%= @forward_related_itemID %>" name="related_item">
+    <div>
         <label for="msg">Message:</label>
+
         <textarea name="content"></textarea>
     </div>
     <div class="button">

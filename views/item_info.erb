@@ -2,7 +2,7 @@
 <% if logged_in? %>
 <div class="centre">
 <h1><%= @item.name %></h1>
-<p>Item Id: <%= @item.id %></p>
+
   <img src="<%= @item.image_url%>" style="cursor:pointer"
        onclick="showImage(this.src, '<%= @item.image_url%>');" />
   <div id="largeImgPanel" onclick="this.style.display='none'">
@@ -14,12 +14,9 @@
     <p>$<%= @item.price%></p>
 
 
-
-
-
 <form action="/send_message/<%= @item.user_id%>" method="post">
     <div>
-        <textarea id ="reply" name="content" placeholder="Contact the seller...">
+        <textarea id ="send_message" name="content" placeholder="Contact the seller...">
         </textarea>
     </div>
 
@@ -29,7 +26,6 @@
         <button type="submit">Contact Seller</button>
     </div>
 </form>
-
 </div>
 
 
@@ -59,7 +55,7 @@
                 display: none;
                 position: fixed;
                 z-index: 100;
-                top: 0; left: 0; width: 100%; height: 100%;
+                top: 0; left: 0; width: 100%; height: auto;
                 background-color: rgba(100,100,100, 0.5);
             }
         </style>
