@@ -66,7 +66,7 @@ post '/signup' do
   end
 if emailCheck.include? params[:email]
 
-      @email_alert = "I warned you! this email is already taken, if its yours maybe you can login already"
+      # @email_alert = "I warned you! this email is already taken, if its yours maybe you can login already"
       erb  :signup
     else
 
