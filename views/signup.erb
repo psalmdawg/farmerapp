@@ -1,4 +1,4 @@
-<p id='emails'> <%= @emails.to_json %> </p>
+
 <p> <%= @email_alert %></p>
 
 <form action="/signup" method="post">
@@ -8,7 +8,7 @@
   <p>
     <input type="email" name="email" placeholder= "enter email" id="email"
     onkeyup="checkEmail(); return false;"/>
-  </p><span id ="hidden_message"></span>
+  <span id ="hidden_message"></span></p>
   <p>
     <input type="password" name="pass1" placeholder= "enter password" id="pass1"/>
   </p>
@@ -20,7 +20,7 @@
 
 </form>
 
-<p> the Json emails from ruby ===> <%= @emails.to_json %></p>
+
 
 <script>
 
@@ -33,16 +33,10 @@ function checkEmail(){
   var email = document.getElementById('email')
   for(i =0; i <= emails.length; i ++){
     if (emails[i] === email.value){
-    email.style.backgroundColor = badColor;
+    // email.style.backgroundColor = badColor;
     emailAlerter.innerHTML = "This email is already taken"}
 
-//    else  { for (j=0; j <=emails.length; j++) {
-//     if(emails[j] !== email.value){
-//       email.style.backgroundColor = white;
-//       emailAlerter.innerHTML = ""
-//     }
-//   }
-// };
+
 
 
   }

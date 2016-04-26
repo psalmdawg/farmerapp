@@ -1,11 +1,11 @@
-require 'sinatra/reloader'
+
 require 'sinatra'
 require './db_config'
 require './models/item'
 require './models/user'
 require './models/message'
 require 'pg'
-require 'pry'
+
 enable :sessions
 
 

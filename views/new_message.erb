@@ -1,5 +1,4 @@
-
-
+<h2>The internets most crappy email service!</h2>
 Address book<select class="" name="">
   <% @users.each do |user| %>
   <option  value="<%= user.user_name %>"><%=user.user_name%></option>
@@ -17,8 +16,7 @@ Address book<select class="" name="">
 <div id ="newMsg">
   <form action="/new_message" method="post"></li>
   <p id="disclaimer">This messaging system doesn't work so well, so you need to be specific about WHO you are
-    messaging and WHAT you are messaging about. See the drop down menus for a list of all users and
-    all items for sale</p>
+    messaging and WHAT you are messaging about. See the drop down menus (above) for a list of all the WHO and the WHAT. They are case sensitive</p>
 <li><input type="text" name="recipient" placeholder ="who to?"/></li>
 <li><textarea name="content"></textarea></li>
 <li><input type="text" name="related" placeholder ="about"/></li>

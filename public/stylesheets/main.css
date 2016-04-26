@@ -7,6 +7,10 @@
   width: 45px;
 }
 
+#hidden_message{
+  color: red;
+}
+
 #disclaimer {
   color: red;
   font-weight: bold;
